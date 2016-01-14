@@ -2,10 +2,16 @@
 PS1='\[\e[1;33m\][\D{%T}] ${PWD}\[\e[0m\]\n\[\e[1;31m\]\$\[\e[0m\] '
 PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 
-# Android SDK
-ANDROID_HOME=$HOME/app/lib/android-sdk
-
 # Bins
-PATH=$PATH:$HOME/bin:$HOME/.npm_prefix/bin
+PATH=$PATH:$HOME/bin
 
-export ANDROID_HOME PATH
+# Docker
+function docker() {
+    ssh vagrant@192.168.50.10 -tt "cd $PWD && sudo docker $@"
+}
+
+function box() {
+    ssh vagrant@192.168.50.10
+}
+export -f docker
+export -f box
