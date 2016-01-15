@@ -1,7 +1,3 @@
-# Promt
-PS1='\[\e[1;33m\][\D{%T}] ${PWD}\[\e[0m\]\n\[\e[1;31m\]\$\[\e[0m\] '
-PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
-
 # Bins
 PATH=$PATH:$HOME/bin
 
@@ -15,3 +11,22 @@ function box() {
 }
 export -f docker
 export -f box
+
+# Git
+function is_git() {
+    git rev-parse 2> /dev/null
+}
+
+function git_branch() {
+    echo $(git rev-parse --abbrev-ref HEAD)
+}
+
+# Colors
+Z="\033[m"
+Y="\033[1;33m"
+R="\033[1;31m"
+G="\033[1;32m"
+B="\033[1;34m"
+
+# Promt
+PS1="\[$Y\][\D{%T}] \w\[$Z\] \[$G\]* \$(is_git && git_branch)\[$Z\]\n\[$R\]\$ \[$Z\]"
