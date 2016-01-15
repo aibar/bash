@@ -33,3 +33,6 @@ B="\033[1;34m"
 
 # Promt
 PS1="\[$Y\][\D{%T}] \w\[$Z\] \[$G\]\$(is_git && git_info)\[$Z\]\n\[$R\]\$ \[$Z\]"
+
+# Aliases
+alias la="ls -al $1"
