@@ -16,9 +16,12 @@ export -f box
 function is_git() {
     git rev-parse 2> /dev/null
 }
-
-function git_branch() {
-    echo $(git rev-parse --abbrev-ref HEAD)
+function git_info() {
+    info="* $(git rev-parse --abbrev-ref HEAD)"
+    if [[ -n "$(git status --porcelain 2> /dev/null)" ]]; then
+        info="$info [no]"
+    fi
+    echo "$info"
 }
 
 # Colors
@@ -29,4 +32,4 @@ G="\033[1;32m"
 B="\033[1;34m"
 
 # Promt
-PS1="\[$Y\][\D{%T}] \w\[$Z\] \[$G\]* \$(is_git && git_branch)\[$Z\]\n\[$R\]\$ \[$Z\]"
+PS1="\[$Y\][\D{%T}] \w\[$Z\] \[$G\]\$(is_git && git_info)\[$Z\]\n\[$R\]\$ \[$Z\]"
