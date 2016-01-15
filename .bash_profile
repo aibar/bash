@@ -37,3 +37,8 @@ PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 
 # Aliases
 alias la="ls -al $1"
+
+# Homes
+JAVA_HOME=~/app/dev/jdk
+JDK_HOME=~/app/dev/jdk
+GRADLE_HOME=~/app/dev/gradle
