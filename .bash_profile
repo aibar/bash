@@ -1,6 +1,3 @@
-# Bins
-PATH=$PATH:$HOME/bin
-
 # Docker
 function docker() {
     ssh vagrant@192.168.50.10 -tt "cd $PWD && sudo docker $@"
@@ -40,7 +37,10 @@ alias la="ls -al $1"
 alias nn="nano"
 
 # Homes
-JAVA_HOME=~/app/dev/jdk
-JDK_HOME=~/app/dev/jdk
-GRADLE_HOME=~/app/dev/gradle
+export JAVA_HOME=~/app/dev/jdk
+export JDK_HOME=~/app/dev/jdk
+export MAVEN_HOME=~/app/dev/maven
 
+
+# Bins
+export PATH=$PATH:$HOME/bin:$MAVEN_HOME/bin
