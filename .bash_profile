@@ -43,4 +43,4 @@ export MAVEN_HOME=~/app/dev/maven
 export NODE_HOME=~/app/dev/node
 
 # Bins
-export PATH=$PATH:$HOME/bin:$MAVEN_HOME/bin:$NODE_HOME/bin
+export PATH=$PATH:$HOME/bin:$MAVEN_HOME/bin:$NODE_HOME/bin:~/.npm_prefix/bin
